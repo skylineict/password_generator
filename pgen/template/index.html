@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+
+
+
+
+{% extends "base.html" %} {% block content %}
+
+<style>
+
+.btn:hover {
+
+
+  background-color: red!important;
+  /* Start the shake animation and make the animation last for 0.5 seconds */
+  animation: shake 0.20s;
+
+  /* When the animation is finished, start again */
+  animation-iteration-count: infinite;
+}
+
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+</style>
+<body style="background: #afa0af">
+<!-- Page Content -->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12 text-center">
+      <h1 class="mt-5" style="margin-top: 18rem !important">
+        Welcome to My password Generator page
+      </h1>
+     
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+          Lunch App
+        </button>
+     
+
+        </div>
+       
+           
+    
+    </div>
+  </div>
+</div>
+
+
+
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+       
+      </div>
+      <div class="modal-body">
+        
+        <form action="{% url 'password' %}">
+        <div class="form-group">
+          <label for="exampleFormControlSelect1">Password lenght</label>
+          <select name='lenght' class="form-control" id="exampleFormControlSelect1">
+            <option>6</option>
+            <option>10</option>
+            <option selected="selected"> 12 </option>
+            <option>15</option>
+            <option>20</option>
+          </select>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" name="uppercase" type="checkbox" >
+          <label class="form-check-label">
+           UpperCase
+          </label>
+          <br/>
+          
+          <input class="form-check-input"name="special" type="checkbox" >
+          <label class="form-check-label" for="defaultCheck1">
+            Special
+          </label>
+
+          <br/>
+
+          <input class="form-check-input" name="numbers" type="checkbox">
+          <label class="form-check-label">
+            Nnumbers
+          </label>
+
+
+        </div>
+    
+       
+    
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Save changes</button>
+      </form>
+      </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+ </body>
+{% endblock %}
